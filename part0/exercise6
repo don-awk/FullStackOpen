@@ -1,0 +1,14 @@
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: User types in not and presses send
+    activate browser
+    Note right of browser: JavaScript code executes that clears input box,  adds new note to notes data, and redraws all notes to page
+    Note right of browser: Javascript code also sends new note to server
+    deactivate browser
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: {"message":"note created"}
+```
